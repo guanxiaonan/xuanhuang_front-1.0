@@ -67,6 +67,9 @@
         methods: {
             init () {
             },
+
+            testGit(){},
+            testGit2(){},
             // getData () {
             //     //请求方法，根据实际情况使用
             //     axios.get('/api/material').then((res) => {

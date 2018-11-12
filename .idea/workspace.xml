@@ -168,8 +168,13 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1432" />
+=======
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+>>>>>>> temp
     <option name="y" value="-8" />
     <option name="width" value="1456" />
     <option name="height" value="876" />
