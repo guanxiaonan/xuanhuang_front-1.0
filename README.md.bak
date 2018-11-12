@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### dmx-mm-iview 
 是dmx-mm-platform 的前端部分，
 使用了 基于Vue2的[iView Admin框架v1.2.2](https://iview.github.io/iview-admin)
@@ -23,7 +24,7 @@ npm run build
 - [iView](https://github.com/iview/iview)
 - [Vue](https://github.com/vuejs/vue)
 - [Webpack](https://github.com/webpack/webpack)
-
+=======
 # xuanhuang_front-1.0
 vue javascript
-
+>>>>>>> 0a6e3040af11935d9ca64a7303f561a77f1d592c
