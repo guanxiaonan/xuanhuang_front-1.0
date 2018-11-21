@@ -88,33 +88,37 @@ export const appRouter = [
         ]
     },
     {
+        path: '/data-test',
+        icon: 'lock-combination',
+        title: '数据测试页',
+        name: 'data-test',
+        access: 0,
+        component: Main,
+        children: [
+            { path: 'index', title: '权限测试页', name: 'data-test_index', access: 0, component: resolve => { require(['@/views/access/data-test.vue'], resolve); } }
+        ]
+    },
+    {
         path: '/user',
         icon: 'social-buffer',
         name: 'user',
-        title: '用户中心',
+        title: '数据中心',
         component: Main,
         children: [
-            {
-                path: 'user-list',
-                icon: 'compose',
-                name: 'user-list',
-                title: '用户列表',
-                component: resolve => { require(['@/views/user/user-list.vue'], resolve); }
-            }
             // {
-            //     path: 'user-add',
-            //     icon: 'pound',
-            //     name: 'user-add',
-            //     title: '添加用户',
-            //     component: resolve => { require(['@/views/user/user-add.vue'], resolve); }
-            // },
-            // {
-            //     path: 'user-edit',
-            //     icon: 'crop',
-            //     name: 'user-edit',
-            //     title: '编辑用户',
-            //     component: resolve => { require(['@/views/user/user-edit.vue'], resolve); }
+            //     path: 'user-list',
+            //     icon: 'compose',
+            //     name: 'user-list',
+            //     title: '用户列表',
+            //     component: resolve => { require(['@/views/user/user-list.vue'], resolve); }
             // }
+            {
+                path: 'data-view',
+                icon: 'pound',
+                name: 'data-view',
+                title: '数据中心',
+                component: resolve => { require(['@/views/user/data-view.vue'], resolve); }
+            }
             // {
             //     path: 'draggable-list',
             //     icon: 'arrow-move',

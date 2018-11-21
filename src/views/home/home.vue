@@ -31,6 +31,7 @@
                         <Row class="margin-top-8">
                             <Col span="8"><p class="notwrap">上次登录地点:</p></Col>
                             <Col span="16" class="padding-left-8">北京</Col>
+                            <iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=2&num=2" width="550" height="70" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
                         </Row>
                     </Card>
                 </Row>
@@ -140,11 +141,11 @@ export default {
                     }
                 }
                 //this.total = res.data.data.length
-                console.log(result)        
+                console.log(result)
 
             }).catch(function (error) {
                 console.log(error);
-            });;    
+            });;
         }
 
     },
@@ -153,6 +154,6 @@ export default {
         this.initData();
         //this.getList()
         //this.getData(this.currentPage,this.display);
-    }, 
+    },
 };
 </script>
