@@ -168,7 +168,8 @@ export const appRouter = [
             // { path: 'material-list', title: '物料列表', name: 'material-list', icon: 'arrow-swap', component: resolve => { require(['@/views/material/material-list.vue'], resolve); } },
             { path: 'soil-list', title: '土壤数据', name: 'soil-list', icon: 'arrow-swap', component: resolve => { require(['@/views/material/soil-list.vue'], resolve); } },
             { path: 'air-list', title: '空气数据', name: 'air-list', icon: 'arrow-swap', component: resolve => { require(['@/views/material/air-list.vue'], resolve); } },
-            { path: 'light-list', title: '光照数据', name: 'light-list', icon: 'arrow-swap', component: resolve => { require(['@/views/material/light-list.vue'], resolve); } }
+            { path: 'light-list', title: '光照数据', name: 'light-list', icon: 'arrow-swap', component: resolve => { require(['@/views/material/light-list.vue'], resolve); } },
+            { path: 'EC-list', title: 'EC数据', name: 'EC-list', icon: 'arrow-swap', component: resolve => { require(['@/views/material/EC-list.vue'], resolve); } }
             // { path: 'material-add', title: '添加物料', name: 'material-add', icon: 'arrow-swap', component: resolve => { require(['@/views/material/material-add.vue'], resolve); } },
             // { path: 'material-edit', title: '编辑物料', name: 'material-edit', icon: 'arrow-swap', component: resolve => { require(['@/views/material/material-edit.vue'], resolve); } }
         ]
