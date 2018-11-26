@@ -16,7 +16,7 @@
                                 {{ item.typeName }}
                             </Option>
                         </Select>
-                        
+
                     </FormItem>
                     <FormItem label="编码">
                         <Input v-model="formItem.code" placeholder="Enter something..."></Input>
@@ -65,13 +65,11 @@
                         //res 为成功回调的响应
                         this.typeNameList = res.data.data;
                     }
-                    
                 });
             },
-            submitForm: function($event) {  
-
-                console.log("123456");  
-                console.log(this.formItem);  
+            submitForm: function($event) {
+                console.log("123456");
+                console.log(this.formItem);
                 axios.post('/api/material', this.formItem,{
                     headers: {
                             'Content-Type': 'application/json'
@@ -84,12 +82,11 @@
                             name: 'login'
                         });
                     }
-                    
                   })
                   .catch(function (error) {
                     console.log(error);
-                  }); 
-            } 
+                  });
+            }
         },
         mounted () {
             this.init();

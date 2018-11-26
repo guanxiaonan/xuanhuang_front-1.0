@@ -6,7 +6,6 @@
         }
     }
 </style>
-
 <template>
     <div>
         <Row>
@@ -17,6 +16,10 @@
                 </p>
                 <Table :columns="columns10" :data="dataSoil"></Table>
             </Card>
+            <card>
+                <div :class="className" :id="id" :style="{height:height,width:width}" ref="myEchart">
+                </div>
+            </card>
         </Row>
     </div>
 </template>
@@ -24,14 +27,36 @@
 <script>
     import expandRow from './component/expandRow.vue';
     import axios from 'axios';
-    import {formatDate} from '../common/formatDate'
+    import {formatDate} from '../common/formatDate';
+    import echarts from 'echarts'
     export default {
+        props: {
+            className: {
+                type: String,
+                default: 'yourClassName'
+            },
+            id: {
+                type: String,
+                default: 'yourID'
+            },
+            width: {
+                type: String,
+                default: '1000px'
+            },
+            height: {
+                type: String,
+                default: '500px'
+            }
+        },
         name: 'soil-list',
         components: {
             expandRow
         },
         data () {
             return {
+                date: [],
+                soilHumidity: [],
+                chart: null,
                 columns10: [
                     {
                         type: 'expand',
@@ -90,23 +115,68 @@
             // },
             getData () {
                 axios.get('api/soil_get').then((res) => {
-                    console.log(res.data.data);
+                    // if(res.data.data.length === 0) {
+                    //
+                    // }
+                    // console.log(res.data.data);
+                    // console.log("==========", res.data.data[0])
+                    // console.log(res.data.data[0].soilHumidity);
                     for (var i = 0; i < res.data.data.length; i++) {
                         var date = new Date(res.data.data[i].date);
                         res.data.data[i].date = formatDate(date, 'yyyy-MM-dd hh:mm:ss');
+                        this.date[i]=res.data.data[i].date;
+                        this.soilHumidity[i]=res.data.data[i].soilHumidity;
                     }
+
+                    // console.log(this.soilHumidity[0])
+                    // console.log(this.soilHumidity)
+                    // console.log(this.date)
                     this.dataSoil = res.data.data;
+                    this.initChart()
                 }).catch((error) => {
                     console.log(error);
                 });
-            }
+            },
+            initChart() {
+                // console.log('开始画图');
+                this.chart = echarts.init(this.$refs.myEchart);
+                // console.log(this.date);
+                // console.log(10086);
+                // 把配置和数据放这里
+                this.chart.setOption({
+                    xAxis: {
+                        type: 'category',
+                        data: this.date
+                        // data: [1,2,3,4,5,67]
+                    },
+                    yAxis: {
+                        type: 'value',
+                    },
+                    series: [{
+                        data: this.soilHumidity,
+                        type: 'line'
+                    }]
+                },
+                )
+                console.log('画图结束');
+            },
         },
-        mounted () {
-            this.init();
+        created(){
+        },
+        mounted(){
             this.getData();
+            this.initChart();
+            this.init();
+        },
+        beforeDestroy(){
+            if (!this.chart) {
+                return
+            }
+            this.chart.dispose();
+            this.chart = null;
         },
         watch: {
-            '$route' () {
+            '$route'(){
                 this.init();
             }
         }

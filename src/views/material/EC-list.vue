@@ -1,6 +1,9 @@
 <template>
     <div :class="className" :id="id" :style="{height:height,width:width}" ref="myEchart">
     </div>
+
+    
+
 </template>
 <script>
     import echarts from 'echarts'
@@ -46,7 +49,7 @@
                 // 把配置和数据放这里
                 this.chart.setOption({
                     title: {
-                        text: 'Beijing AQI'
+                        text: '黄茶EC'
                     },
                     tooltip: {
                         trigger: 'axis'
